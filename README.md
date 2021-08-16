@@ -15,6 +15,9 @@ import 	"github.com/walkersumida/faker"
 
 profile := faker.Profile
 
+fmt.Println(profile.EnCompany)
+// => "Suzuki Capital Partners, Inc."
+
 fmt.Println(profile.JaKanjiFullName)
 // => "鈴木 一郎"
 
