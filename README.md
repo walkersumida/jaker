@@ -1,4 +1,5 @@
 # Faker
+![badge](https://github.com/walkersumida/faker/actions/workflows/test.yml/badge.svg)
 
 ## Getting Started
 ### Download
