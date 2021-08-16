@@ -14,6 +14,11 @@ type EmailStruct struct {
 	EmailDomain string
 }
 
+type CompanyStruct struct {
+	En string
+	Ja string
+}
+
 type ProfileStruct struct {
 	EnFirstName string
 	EnLastName string
@@ -24,11 +29,13 @@ type ProfileStruct struct {
 	EnFullName string
 	JaHiraFullName string
 	JaKanjiFullName string
+	EnCompany string
+	JaCompany string
 	Website string
 	EmailStruct
 }
 
-func upper(str string) string {
+func Upper(str string) string {
 	top := str[:1]
 	others := str[1:]
 	return strings.ToUpper(top) + others
@@ -40,6 +47,7 @@ func profile() ProfileStruct {
 	firstName := PickUpFirstName()
 	lastName := PickUpLastName()
 	email := BuildEmail(firstName.En, lastName.En, domain)
+	company := BuildCompany(lastName)
 
 	p.EnFirstName = firstName.En
 	p.JaHiraFirstName = firstName.JaHira
@@ -47,9 +55,11 @@ func profile() ProfileStruct {
 	p.EnLastName = lastName.En
 	p.JaHiraLastName = lastName.JaHira
 	p.JaKanjiLastName = lastName.JaKanji
-	p.EnFullName = upper(firstName.En) + " " + upper(lastName.En)
+	p.EnFullName = Upper(firstName.En) + " " + Upper(lastName.En)
 	p.JaHiraFullName = lastName.JaHira + " " + firstName.JaHira
 	p.JaKanjiFullName = lastName.JaKanji + " " + firstName.JaKanji
+	p.EnCompany = company.En
+	p.JaCompany = company.Ja
 	p.Website = BuildWebsite(domain)
 	p.Email = email.Email
 	p.EmailLocalPart = email.EmailLocalPart
