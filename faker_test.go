@@ -35,3 +35,11 @@ func TestProfile(t *testing.T) {
 		}
 	})
 }
+
+func TestUuid(t *testing.T) {
+	expected := 36
+	got := len(Uuid)
+	if got != expected {
+		t.Errorf("\nexpected: %d\n     got: %d", expected, got)
+	}
+}
