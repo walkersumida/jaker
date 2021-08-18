@@ -1,6 +1,10 @@
 package faker
 
-import "strings"
+import (
+	"strings"
+
+	guuid "github.com/google/uuid"
+)
 
 type NameStruct struct {
 	En string
@@ -68,4 +72,12 @@ func profile() ProfileStruct {
 	return p
 }
 
+func uuid() string {
+	uuidObj, _ := guuid.NewRandom()
+	uuid := uuidObj.String()
+
+	return uuid
+}
+
 var Profile = profile()
+var Uuid = uuid()
