@@ -26,4 +26,7 @@ fmt.Println(profile.EnFullName)
 
 fmt.Println(profile.Email)
 // => "ichiro.suzuki@example.com"
+
+fmt.Println(faker.Uuid)
+// => "add0de95-6d27-44de-ab7a-d45998bc6b05"
 ```
