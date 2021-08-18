@@ -1,10 +1,9 @@
 package faker
 
 import (
-	crand "crypto/rand"
-	"math"
-	"math/big"
 	"math/rand"
+
+	"github.com/walkersumida/faker/helpers/seed"
 )
 
 func PickUpLastName() NameStruct {
@@ -20,7 +19,6 @@ func PickUpLastName() NameStruct {
 		{ JaKanji: "小林", JaHira: "こばやし", En: "kobayashi" },
 		{ JaKanji: "加藤", JaHira: "かとう", En: "kato" },
 	}
-	seed, _ := crand.Int(crand.Reader, big.NewInt(math.MaxInt64))
 	rand.Seed(seed.Int64())
 
 	return data[rand.Intn(len(data))]

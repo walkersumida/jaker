@@ -1,10 +1,9 @@
 package faker
 
 import (
-	crand "crypto/rand"
-	"math"
-	"math/big"
 	"math/rand"
+
+	"github.com/walkersumida/faker/helpers/seed"
 )
 
 func BuildCompany(name NameStruct) CompanyStruct {
@@ -22,7 +21,6 @@ func BuildCompany(name NameStruct) CompanyStruct {
 		{ En: "Real Estate Development", Ja: "不動産" },
 		{ En: "Trading Company", Ja: "商事" },
 	}
-	seed, _ := crand.Int(crand.Reader, big.NewInt(math.MaxInt64))
 	rand.Seed(seed.Int64())
 
 	selectedCompany := data[rand.Intn(len(data))]

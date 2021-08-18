@@ -1,10 +1,9 @@
 package faker
 
 import (
-	crand "crypto/rand"
-	"math"
-	"math/big"
 	"math/rand"
+
+	"github.com/walkersumida/faker/helpers/seed"
 )
 
 func BuildEmail(firstName string, lastName string, domain string) EmailStruct {
@@ -14,7 +13,6 @@ func BuildEmail(firstName string, lastName string, domain string) EmailStruct {
 	data := []EmailStruct{
 		{ Email: email, EmailLocalPart: localPart, EmailDomain: domain },
 	}
-	seed, _ := crand.Int(crand.Reader, big.NewInt(math.MaxInt64))
 	rand.Seed(seed.Int64())
 
 	return data[rand.Intn(len(data))]
