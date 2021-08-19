@@ -29,4 +29,7 @@ fmt.Println(profile.Email)
 
 fmt.Println(faker.Uuid)
 // => "add0de95-6d27-44de-ab7a-d45998bc6b05"
+
+fmt.Println(faker.Text("abcあいう", 10))
+// => "abcあいうabcあ"
 ```
