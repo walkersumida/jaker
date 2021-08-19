@@ -79,5 +79,13 @@ func uuid() string {
 	return uuid
 }
 
+func Text(base string, length int) string {
+	textGen := &TextGen{}
+	textGen.Base = base
+	textGen.txtSize = length
+
+	return textGen.GenText()
+}
+
 var Profile = profile()
 var Uuid = uuid()
