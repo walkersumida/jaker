@@ -43,3 +43,11 @@ func TestUuid(t *testing.T) {
 		t.Errorf("\nexpected: %d\n     got: %d", expected, got)
 	}
 }
+
+func TestText(t *testing.T) {
+	expected := "abcあいうabcあ"
+	got := Text("abcあいう", 10)
+	if got != expected {
+		t.Errorf("\nexpected: %s\n     got: %s", expected, got)
+	}
+}
