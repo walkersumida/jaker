@@ -1,9 +1,9 @@
-package faker
+package jaker
 
 import (
 	"math/rand"
 
-	"github.com/walkersumida/faker/helpers/seed"
+	"github.com/walkersumida/jaker/helpers/seed"
 )
 
 func BuildCompany(name NameStruct) CompanyStruct {

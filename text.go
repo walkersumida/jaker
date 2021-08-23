@@ -1,4 +1,4 @@
-package faker
+package jaker
 
 import "unicode/utf8"
 

@@ -1,4 +1,4 @@
-module github.com/walkersumida/faker
+module github.com/walkersumida/jaker
 
 go 1.16
 
