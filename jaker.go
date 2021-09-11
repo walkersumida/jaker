@@ -7,15 +7,15 @@ import (
 )
 
 type NameStruct struct {
-	En string
-	JaHira string
+	En      string
+	JaHira  string
 	JaKanji string
 }
 
 type EmailStruct struct {
-	Email string
+	Email          string
 	EmailLocalPart string
-	EmailDomain string
+	EmailDomain    string
 }
 
 type CompanyStruct struct {
@@ -24,18 +24,18 @@ type CompanyStruct struct {
 }
 
 type ProfileStruct struct {
-	EnFirstName string
-	EnLastName string
-	JaHiraFirstName string
-	JaHiraLastName string
+	EnFirstName      string
+	EnLastName       string
+	JaHiraFirstName  string
+	JaHiraLastName   string
 	JaKanjiFirstName string
-	JaKanjiLastName string
-	EnFullName string
-	JaHiraFullName string
-	JaKanjiFullName string
-	EnCompany string
-	JaCompany string
-	Website string
+	JaKanjiLastName  string
+	EnFullName       string
+	JaHiraFullName   string
+	JaKanjiFullName  string
+	EnCompany        string
+	JaCompany        string
+	Website          string
 	EmailStruct
 }
 

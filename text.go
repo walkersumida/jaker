@@ -3,7 +3,7 @@ package jaker
 import "unicode/utf8"
 
 type TextGen struct {
-	Base string
+	Base    string
 	txtSize int
 }
 

@@ -11,7 +11,7 @@ func BuildEmail(firstName string, lastName string, domain string) EmailStruct {
 	email := localPart + "@" + domain
 
 	data := []EmailStruct{
-		{ Email: email, EmailLocalPart: localPart, EmailDomain: domain },
+		{Email: email, EmailLocalPart: localPart, EmailDomain: domain},
 	}
 	rand.Seed(seed.Int64())
 
