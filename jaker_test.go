@@ -21,14 +21,14 @@ func TestLastName(t *testing.T) {
 func TestProfile(t *testing.T) {
 	expected := 1
 
-	t.Run("english fullname", func(t *testing.T){
+	t.Run("english fullname", func(t *testing.T) {
 		got := len(Profile.EnFullName)
 		if got < expected {
 			t.Errorf("\nexpected: %d\n     got: %d", expected, got)
 		}
 	})
 
-	t.Run("email", func(t *testing.T){
+	t.Run("email", func(t *testing.T) {
 		got := len(Profile.Email)
 		if got < expected {
 			t.Errorf("\nexpected: %d\n     got: %d", expected, got)
