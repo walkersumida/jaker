@@ -4,6 +4,7 @@ import (
 	"strings"
 
 	guuid "github.com/google/uuid"
+	"github.com/walkersumida/jaker/gen/text"
 )
 
 type NameStruct struct {
@@ -80,11 +81,11 @@ func uuid() string {
 }
 
 func Text(base string, length int) string {
-	textGen := &TextGen{}
-	textGen.Base = base
-	textGen.txtSize = length
+	txt := text.New()
+	txt.Base = base
+	txt.Size = length
 
-	return textGen.GenText()
+	return txt.Gen()
 }
 
 var Profile = profile()
