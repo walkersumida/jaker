@@ -34,6 +34,13 @@ func TestProfile(t *testing.T) {
 			t.Errorf("\nexpected: %d\n     got: %d", expected, got)
 		}
 	})
+
+	t.Run("website", func(t *testing.T) {
+		got := len(Profile.Website)
+		if got < expected {
+			t.Errorf("\nexpected: %d\n     got: %d", expected, got)
+		}
+	})
 }
 
 func TestUuid(t *testing.T) {
