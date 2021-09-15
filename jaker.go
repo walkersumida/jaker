@@ -5,6 +5,7 @@ import (
 
 	guuid "github.com/google/uuid"
 	"github.com/walkersumida/jaker/gen/text"
+	"github.com/walkersumida/jaker/gen/website"
 )
 
 type NameStruct struct {
@@ -65,7 +66,7 @@ func profile() ProfileStruct {
 	p.JaKanjiFullName = lastName.JaKanji + " " + firstName.JaKanji
 	p.EnCompany = company.En
 	p.JaCompany = company.Ja
-	p.Website = BuildWebsite(domain)
+	p.Website = website.Gen(domain)
 	p.Email = email.Email
 	p.EmailLocalPart = email.EmailLocalPart
 	p.EmailDomain = email.EmailDomain
