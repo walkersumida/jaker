@@ -4,25 +4,15 @@ import (
 	"strings"
 
 	guuid "github.com/google/uuid"
+	"github.com/walkersumida/jaker/gen/company"
 	"github.com/walkersumida/jaker/gen/text"
 	"github.com/walkersumida/jaker/gen/website"
 )
-
-type NameStruct struct {
-	En      string
-	JaHira  string
-	JaKanji string
-}
 
 type EmailStruct struct {
 	Email          string
 	EmailLocalPart string
 	EmailDomain    string
-}
-
-type CompanyStruct struct {
-	En string
-	Ja string
 }
 
 type ProfileStruct struct {
@@ -53,7 +43,7 @@ func profile() ProfileStruct {
 	firstName := PickUpFirstName()
 	lastName := PickUpLastName()
 	email := BuildEmail(firstName.En, lastName.En, domain)
-	company := BuildCompany(lastName)
+	company := company.Build(lastName)
 
 	p.EnFirstName = firstName.En
 	p.JaHiraFirstName = firstName.JaHira
