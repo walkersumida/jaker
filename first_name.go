@@ -3,11 +3,12 @@ package jaker
 import (
 	"math/rand"
 
+	"github.com/walkersumida/jaker/gen/name"
 	"github.com/walkersumida/jaker/helpers/seed"
 )
 
-func PickUpFirstName() NameStruct {
-	data := []NameStruct{
+func PickUpFirstName() name.NameStruct {
+	data := []name.NameStruct{
 		{JaKanji: "太郎", JaHira: "たろう", En: "taro"},
 		{JaKanji: "一郎", JaHira: "いちろう", En: "ichiro"},
 		{JaKanji: "次郎", JaHira: "じろう", En: "jiro"},
