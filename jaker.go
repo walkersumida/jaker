@@ -4,17 +4,12 @@ import (
 	guuid "github.com/google/uuid"
 	"github.com/walkersumida/jaker/gen/company"
 	"github.com/walkersumida/jaker/gen/domain"
+	"github.com/walkersumida/jaker/gen/email"
 	"github.com/walkersumida/jaker/gen/name"
 	"github.com/walkersumida/jaker/gen/text"
 	"github.com/walkersumida/jaker/gen/website"
 	"github.com/walkersumida/jaker/helpers/upper"
 )
-
-type EmailStruct struct {
-	Email          string
-	EmailLocalPart string
-	EmailDomain    string
-}
 
 type ProfileStruct struct {
 	EnFirstName      string
@@ -29,7 +24,7 @@ type ProfileStruct struct {
 	EnCompany        string
 	JaCompany        string
 	Website          string
-	EmailStruct
+	email.EmailStruct
 }
 
 func profile() ProfileStruct {
@@ -37,7 +32,7 @@ func profile() ProfileStruct {
 	domain := domain.Gen()
 	firstName := name.FirstGen()
 	lastName := name.LastGen()
-	email := BuildEmail(firstName.En, lastName.En, domain)
+	email := email.Gen(firstName.En, lastName.En, domain)
 	company := company.Build(lastName)
 
 	p.EnFirstName = firstName.En
