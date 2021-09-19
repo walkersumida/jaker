@@ -33,7 +33,7 @@ func profile() ProfileStruct {
 	firstName := name.FirstGen()
 	lastName := name.LastGen()
 	email := email.Gen(firstName.En, lastName.En, domain)
-	company := company.Build(lastName)
+	company := company.Gen(lastName)
 
 	p.EnFirstName = firstName.En
 	p.JaHiraFirstName = firstName.JaHira

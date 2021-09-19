@@ -13,7 +13,7 @@ type CompanyStruct struct {
 	Ja string
 }
 
-func Build(name name.NameStruct) CompanyStruct {
+func Gen(name name.NameStruct) CompanyStruct {
 	data := []CompanyStruct{
 		{En: "Capital Partners", Ja: "キャピタルパートナーズ"},
 		{En: "Technologies", Ja: "テクノロジーズ"},
