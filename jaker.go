@@ -1,12 +1,12 @@
 package jaker
 
 import (
-	"strings"
-
 	guuid "github.com/google/uuid"
 	"github.com/walkersumida/jaker/gen/company"
+	"github.com/walkersumida/jaker/gen/name"
 	"github.com/walkersumida/jaker/gen/text"
 	"github.com/walkersumida/jaker/gen/website"
+	"github.com/walkersumida/jaker/helpers/upper"
 )
 
 type EmailStruct struct {
@@ -31,17 +31,11 @@ type ProfileStruct struct {
 	EmailStruct
 }
 
-func Upper(str string) string {
-	top := str[:1]
-	others := str[1:]
-	return strings.ToUpper(top) + others
-}
-
 func profile() ProfileStruct {
 	var p ProfileStruct
 	domain := PickUpDomain()
-	firstName := PickUpFirstName()
-	lastName := PickUpLastName()
+	firstName := name.FirstGen()
+	lastName := name.LastGen()
 	email := BuildEmail(firstName.En, lastName.En, domain)
 	company := company.Build(lastName)
 
@@ -51,7 +45,7 @@ func profile() ProfileStruct {
 	p.EnLastName = lastName.En
 	p.JaHiraLastName = lastName.JaHira
 	p.JaKanjiLastName = lastName.JaKanji
-	p.EnFullName = Upper(firstName.En) + " " + Upper(lastName.En)
+	p.EnFullName = upper.First(firstName.En) + " " + upper.First(lastName.En)
 	p.JaHiraFullName = lastName.JaHira + " " + firstName.JaHira
 	p.JaKanjiFullName = lastName.JaKanji + " " + firstName.JaKanji
 	p.EnCompany = company.En
