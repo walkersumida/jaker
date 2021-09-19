@@ -1,4 +1,4 @@
-package jaker
+package domain
 
 import (
 	"math/rand"
@@ -6,7 +6,7 @@ import (
 	"github.com/walkersumida/jaker/helpers/seed"
 )
 
-func PickUpDomain() string {
+func Gen() string {
 	data := []string{
 		"example.com",
 		"example.org",
