@@ -3,6 +3,7 @@ package jaker
 import (
 	guuid "github.com/google/uuid"
 	"github.com/walkersumida/jaker/gen/company"
+	"github.com/walkersumida/jaker/gen/domain"
 	"github.com/walkersumida/jaker/gen/name"
 	"github.com/walkersumida/jaker/gen/text"
 	"github.com/walkersumida/jaker/gen/website"
@@ -33,7 +34,7 @@ type ProfileStruct struct {
 
 func profile() ProfileStruct {
 	var p ProfileStruct
-	domain := PickUpDomain()
+	domain := domain.Gen()
 	firstName := name.FirstGen()
 	lastName := name.LastGen()
 	email := BuildEmail(firstName.En, lastName.En, domain)
