@@ -1,12 +1,19 @@
-package jaker
+package company
 
 import (
 	"math/rand"
 
+	"github.com/walkersumida/jaker/gen/name"
 	"github.com/walkersumida/jaker/helpers/seed"
+	"github.com/walkersumida/jaker/helpers/upper"
 )
 
-func BuildCompany(name NameStruct) CompanyStruct {
+type CompanyStruct struct {
+	En string
+	Ja string
+}
+
+func Gen(name name.NameStruct) CompanyStruct {
 	data := []CompanyStruct{
 		{En: "Capital Partners", Ja: "キャピタルパートナーズ"},
 		{En: "Technologies", Ja: "テクノロジーズ"},
@@ -24,7 +31,7 @@ func BuildCompany(name NameStruct) CompanyStruct {
 	rand.Seed(seed.Int64())
 
 	selectedCompany := data[rand.Intn(len(data))]
-	selectedCompany.En = Upper(name.En) + " " + selectedCompany.En + ", Inc."
+	selectedCompany.En = upper.First(name.En) + " " + selectedCompany.En + ", Inc."
 	selectedCompany.Ja = "株式会社" + name.JaKanji + selectedCompany.Ja
 
 	return selectedCompany

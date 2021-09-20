@@ -1,27 +1,15 @@
 package jaker
 
 import (
-	"strings"
-
 	guuid "github.com/google/uuid"
+	"github.com/walkersumida/jaker/gen/company"
+	"github.com/walkersumida/jaker/gen/domain"
+	"github.com/walkersumida/jaker/gen/email"
+	"github.com/walkersumida/jaker/gen/name"
+	"github.com/walkersumida/jaker/gen/text"
+	"github.com/walkersumida/jaker/gen/website"
+	"github.com/walkersumida/jaker/helpers/upper"
 )
-
-type NameStruct struct {
-	En      string
-	JaHira  string
-	JaKanji string
-}
-
-type EmailStruct struct {
-	Email          string
-	EmailLocalPart string
-	EmailDomain    string
-}
-
-type CompanyStruct struct {
-	En string
-	Ja string
-}
 
 type ProfileStruct struct {
 	EnFirstName      string
@@ -36,22 +24,16 @@ type ProfileStruct struct {
 	EnCompany        string
 	JaCompany        string
 	Website          string
-	EmailStruct
-}
-
-func Upper(str string) string {
-	top := str[:1]
-	others := str[1:]
-	return strings.ToUpper(top) + others
+	email.EmailStruct
 }
 
 func profile() ProfileStruct {
 	var p ProfileStruct
-	domain := PickUpDomain()
-	firstName := PickUpFirstName()
-	lastName := PickUpLastName()
-	email := BuildEmail(firstName.En, lastName.En, domain)
-	company := BuildCompany(lastName)
+	domain := domain.Gen()
+	firstName := name.FirstGen()
+	lastName := name.LastGen()
+	email := email.Gen(firstName.En, lastName.En, domain)
+	company := company.Gen(lastName)
 
 	p.EnFirstName = firstName.En
 	p.JaHiraFirstName = firstName.JaHira
@@ -59,12 +41,12 @@ func profile() ProfileStruct {
 	p.EnLastName = lastName.En
 	p.JaHiraLastName = lastName.JaHira
 	p.JaKanjiLastName = lastName.JaKanji
-	p.EnFullName = Upper(firstName.En) + " " + Upper(lastName.En)
+	p.EnFullName = upper.First(firstName.En) + " " + upper.First(lastName.En)
 	p.JaHiraFullName = lastName.JaHira + " " + firstName.JaHira
 	p.JaKanjiFullName = lastName.JaKanji + " " + firstName.JaKanji
 	p.EnCompany = company.En
 	p.JaCompany = company.Ja
-	p.Website = BuildWebsite(domain)
+	p.Website = website.Gen(domain)
 	p.Email = email.Email
 	p.EmailLocalPart = email.EmailLocalPart
 	p.EmailDomain = email.EmailDomain
@@ -80,11 +62,11 @@ func uuid() string {
 }
 
 func Text(base string, length int) string {
-	textGen := &TextGen{}
-	textGen.Base = base
-	textGen.txtSize = length
+	txt := text.New()
+	txt.Base = base
+	txt.Size = length
 
-	return textGen.GenText()
+	return txt.Gen()
 }
 
 var Profile = profile()

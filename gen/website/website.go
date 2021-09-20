@@ -1,4 +1,4 @@
-package jaker
+package website
 
 import (
 	"math/rand"
@@ -6,7 +6,7 @@ import (
 	"github.com/walkersumida/jaker/helpers/seed"
 )
 
-func BuildWebsite(domain string) string {
+func Gen(domain string) string {
 	data := []string{
 		"https://",
 		"https://www.",

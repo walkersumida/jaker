@@ -2,22 +2,6 @@ package jaker
 
 import "testing"
 
-func TestFirstName(t *testing.T) {
-	expected := 1
-	got := len(PickUpFirstName().En)
-	if got < expected {
-		t.Errorf("\nexpected: %d\n     got: %d", expected, got)
-	}
-}
-
-func TestLastName(t *testing.T) {
-	expected := 1
-	got := len(PickUpLastName().En)
-	if got < expected {
-		t.Errorf("\nexpected: %d\n     got: %d", expected, got)
-	}
-}
-
 func TestProfile(t *testing.T) {
 	expected := 1
 
@@ -30,6 +14,13 @@ func TestProfile(t *testing.T) {
 
 	t.Run("email", func(t *testing.T) {
 		got := len(Profile.Email)
+		if got < expected {
+			t.Errorf("\nexpected: %d\n     got: %d", expected, got)
+		}
+	})
+
+	t.Run("website", func(t *testing.T) {
+		got := len(Profile.Website)
 		if got < expected {
 			t.Errorf("\nexpected: %d\n     got: %d", expected, got)
 		}

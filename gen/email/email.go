@@ -1,4 +1,4 @@
-package jaker
+package email
 
 import (
 	"math/rand"
@@ -6,7 +6,13 @@ import (
 	"github.com/walkersumida/jaker/helpers/seed"
 )
 
-func BuildEmail(firstName string, lastName string, domain string) EmailStruct {
+type EmailStruct struct {
+	Email          string
+	EmailLocalPart string
+	EmailDomain    string
+}
+
+func Gen(firstName string, lastName string, domain string) EmailStruct {
 	localPart := firstName + "." + lastName
 	email := localPart + "@" + domain
 
