@@ -3,7 +3,7 @@ package text
 import "unicode/utf8"
 
 type Text struct {
-	Base    string
+	Base string
 	Size int
 }
 
