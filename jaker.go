@@ -11,7 +11,7 @@ import (
 	"github.com/walkersumida/jaker/helpers/upper"
 )
 
-type ProfileStruct struct {
+type Profile struct {
 	EnFirstName      string
 	EnLastName       string
 	JaHiraFirstName  string
@@ -27,8 +27,8 @@ type ProfileStruct struct {
 	email.EmailStruct
 }
 
-func profile() ProfileStruct {
-	var p ProfileStruct
+func NewProfile() Profile {
+	var p Profile
 	domain := domain.Gen()
 	firstName := name.FirstGen()
 	lastName := name.LastGen()
@@ -54,7 +54,7 @@ func profile() ProfileStruct {
 	return p
 }
 
-func uuid() string {
+func Uuid() string {
 	uuidObj, _ := guuid.NewRandom()
 	uuid := uuidObj.String()
 
@@ -68,6 +68,3 @@ func Text(base string, length int) string {
 
 	return txt.Gen()
 }
-
-var Profile = profile()
-var Uuid = uuid()
